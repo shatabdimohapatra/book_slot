@@ -1,4 +1,32 @@
-<h2>Hello</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<div id="calendar"></div>
+<div class="modal fade" id="eventModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">x</button>
+        <h4 class="modal-title">Create Appointment</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag appointments_path, method: 'post', class: 'form-horizontal' do %>
+            <div class="form-group">
+              <%= label_tag :title, "Title", class: 'control-label col-sm-2' %>
+              <div class="col-sm-10">
+                <%= text_field_tag :title, '',class: 'form-control' %>
+                <%= hidden_field_tag :start_at %>
+                <%= hidden_field_tag :end_at %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= label_tag :when, "When:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-10" id="when" style="margin-top:5px;"></div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <%= submit_tag 'Save' %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
