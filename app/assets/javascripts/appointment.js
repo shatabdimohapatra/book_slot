@@ -7,7 +7,7 @@ $(document).ready(function() {
         },
         defaultView: "agendaWeek",
         height: 500,
-        slotMinutes: 15,
+        slotDuration: 30,
         events: {
             url: "/appointments",
             color: 'cyan',
